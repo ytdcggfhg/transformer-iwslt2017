@@ -1,0 +1,11 @@
+# PyTorch 和相关库
+torch>=1.9.0
+torchtext>=0.10.0
+
+# 数据处理
+datasets>=2.0.0
+spacy>=3.0.0
+
+# 数值计算和可视化
+numpy>=1.21.0
+matplotlib>=3.4.0
