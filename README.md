@@ -1,6 +1,6 @@
 # Transformer for IWSLT2017 英德翻译
 
-本项目实现了基于 Transformer 模型的英德翻译系统，使用 IWSLT2017 数据集进行训练。
+本项目从零实现了基于 Transformer 编码器–解码器模型的英德翻译模型，使用 IWSLT2017 数据集进行训练。
 
 ## 项目结构
 
@@ -33,9 +33,7 @@
 - **`inference.py`**: 提供推理功能，包括贪心解码器和测试翻译
 - **`train.py`**: 主入口文件，整合所有模块，作为训练脚本的入口点
 
-### 设计原则
 
-本项目遵循**单一职责原则**，每个模块只负责一个特定的功能，使得代码结构清晰、易于维护和扩展。
 
 ## 硬件要求
 
@@ -57,6 +55,17 @@ pip install -r requirements.txt
 python -m spacy download en_core_web_sm
 python -m spacy download de_core_news_sm
 ```
+## 数据集准备
+
+本项目使用 Hugging Face 的 `datasets` 库来处理 IWSLT2017 数据集。无需手动下载此数据集。
+
+当第一次运行训练脚本 (`python src/train.py`) 时，`datasets` 库将会：
+
+1. 自动下载 IWSLT2017 (de-en) 数据集。
+2. 将其缓存到本地磁盘（通常位于 `~/.cache/huggingface/datasets`）。
+
+后续所有运行都将直接从这个本地缓存中读取数据，无需再次下载。
+
 
 ## 使用方法
 
