@@ -1,4 +1,4 @@
-"""Transformer模型架构模块"""
+
 import math
 import numpy as np
 import torch

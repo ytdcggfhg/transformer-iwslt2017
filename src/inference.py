@@ -1,4 +1,4 @@
-"""推理模块"""
+
 import torch
 from data import BOS_IDX, EOS_IDX, tokenize_en, tokenize_de
 
