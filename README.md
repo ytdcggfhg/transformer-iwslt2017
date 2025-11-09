@@ -33,7 +33,9 @@
 - **`inference.py`**: 提供推理功能，包括贪心解码器和测试翻译
 - **`train.py`**: 主入口文件，整合所有模块，作为训练脚本的入口点
 
+### 设计原则
 
+本项目遵循**单一职责原则**，每个模块只负责一个特定的功能，使得代码结构清晰、易于维护和扩展。
 
 ## 硬件要求
 
@@ -77,8 +79,8 @@ python src/train.py
 - `--epochs`: 训练轮数（默认：100）
 - `--batch_size`: 批次大小（默认：64）
 - `--d_model`: 嵌入维度（默认：256）
-- `--d_ff`: 前馈网络维度（默认：2048）
-- `--d_k`: K(=Q), V 的维度（默认：64）
+- `--d_ff`: 前馈网络维度（默认：1024）
+- `--d_k`: K(=Q), V 的维度（默认：32）
 - `--n_layers`: 编码器/解码器层数（默认：4）
 - `--n_heads`: 多头注意力头数（默认：8）
 - `--lr`: 学习率（默认：0.0001）
@@ -99,21 +101,25 @@ python src/train.py
 ### 使用示例
 
 **基础训练：**
+
 ```bash
 python src/train.py --epochs 20 --batch_size 64
 ```
 
 **使用早停机制训练：**
+
 ```bash
 python src/train.py --epochs 100 --early_stop --patience 10
 ```
 
 **在指定 GPU 上训练：**
+
 ```bash
 python src/train.py --device cuda:0 --epochs 20
 ```
 
 **消融实验示例：**
+
 ```bash
 python src/train.py --epochs 20 --no_residual --no_positional_encoding
 ```
